@@ -1,12 +1,12 @@
 # Get NPM packages
 FROM node:14-alpine AS dependencies 
 WORKDIR /app
-COPY package.json package-lock.json ./
+COPY csci2690-assn2/package.json csci2690-assn2/package-lock.json ./
 RUN npm ci
 
 # Rebuild the source code only when needed
 FROM node:14-alpine AS builder
-WORKDIR /app
+WORKDIR csci2690-assn2/app
 COPY . .
 COPY --from=dependencies /app/node_modules ./node_modules 
 RUN npm run build
