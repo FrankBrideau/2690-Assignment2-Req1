@@ -1,6 +1,6 @@
 # Get NPM packages
 FROM node:14-alpine AS dependencies 
-WORKDIR /app
+WORKDIR /csci2690-assn2
 COPY csci2690-assn2/package.json csci2690-assn2/package-lock.json ./
 RUN npm ci
 
