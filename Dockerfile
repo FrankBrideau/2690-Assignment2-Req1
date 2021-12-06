@@ -8,7 +8,7 @@ RUN npm ci
 FROM node:14-alpine AS builder
 WORKDIR /csci2690-assn2
 COPY . .
-COPY --from=dependencies /csci2690/node_modules ./node_modules 
+COPY --from=dependencies /node_modules ./node_modules 
 RUN npm run build
 
 # Production image, copy all the files and run next
